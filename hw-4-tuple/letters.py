@@ -3,5 +3,5 @@ counter = 0
 for i in my_tuple:
     if i.isalpha():
         counter+=1
-print(counter)
+print(f'Количество букв в строке: {counter}')
 
