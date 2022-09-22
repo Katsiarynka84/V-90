@@ -14,6 +14,6 @@ with open(doc) as file_1:
             if word in s:
                 number = text[i].count(word)
                 s = s.replace(word, '*' * len(word), number)
-        new_text.append(s.rstrip(), )
+        new_text.append(s.rstrip())
 
 print(*new_text, sep='\n')
