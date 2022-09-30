@@ -4,7 +4,6 @@ s = (5, 6, '1', '2', '2', '3', '3', '3', '4', '4')
 #     print(tuple(sorted(ss)))
 
 try:
-    print(*sorted(list(map(int,list(s)))))
-
+    print(*sorted(map(int, s)))
 except ValueError:
     print('ошибка', s)
