@@ -7,6 +7,8 @@ for i in s:
         pass
 print(my_set)
 
-
+# придумать, как пользователь может ввести список с изменяемыми элементами
+# while True:
+#     s = [word for word in input.split('\n')]
 
 
