@@ -2,11 +2,15 @@ def main():
     def sum_range(start, end):
         if start > end:
             start, end = end, start
-        return sum(range(start, end + 1))
-    try:
-        print(sum_range(int(input('Введите первое число: ')), int((input('Введите второе число: ')))))
-    except ValueError:
-        print('Вы ввели не число.')
+        return (f'Сумма элементов в диапазоне {start}:{end} равна {sum(range(start, end + 1))}')
+
+
+    while True:
+        try:
+            print(sum_range(int(input('Введите первое число: ')), int((input('Введите второе число: ')))))
+            break
+        except ValueError:
+            print('Вы ввели не число. Попробуйте еще раз.\n')
 
 
 if __name__ == '__main__':
