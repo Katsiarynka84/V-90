@@ -2,7 +2,7 @@ def main():
     def sum_range(start, end):
         if start > end:
             start, end = end, start
-        return (f'Сумма элементов в диапазоне {start}:{end} равна {sum(range(start, end + 1))}')
+        return f'Сумма элементов в диапазоне {start}:{end} равна {sum(range(start, end + 1))}'
 
 
     while True:
