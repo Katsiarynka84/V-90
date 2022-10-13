@@ -1,9 +1,9 @@
 def main():
     def sum_range(start, end):
+        '''Функция возвращает сумму чисел в диапазоне от start до end включительно'''
         if start > end:
             start, end = end, start
         return f'Сумма элементов в диапазоне {start}:{end} равна {sum(range(start, end + 1))}'
-
 
     while True:
         try:
