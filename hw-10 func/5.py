@@ -1,9 +1,12 @@
+import functools
+
+
 def main():
     from math import sqrt
     import time
 
-
     def timing(func):
+        @functools.wraps(func)
         def wrapper(*args, **kwargs):
             start = time.perf_counter()
             do = func(*args, **kwargs)
@@ -13,16 +16,16 @@ def main():
             return do
         return wrapper
 
-
     @timing
-    def length(a, b, c, d):
+    def length(a: int, b: int, c: int, d: int):
+        '''Функция вычисляет длину отрезка
+        на плоскости по 2м координатам'''
         pif = sqrt(((a - b)**2+(c - d)**2))
-        return f'Длина отрезка равна {pif}'
-
+        return f'Длина отрезка равна {round(pif, 4)}'
 
     while True:
         try:
-            x1, y1, x2, y2 = float(input('введите 4 числа:\n')), float(input()), float(input()), float(input())
+            x1, y1, x2, y2 = int(input('введите 4 числа:\n')), int(input()), int(input()), int(input())
             print(length(x1, y1, x2, y2))
             break
         except ValueError:
