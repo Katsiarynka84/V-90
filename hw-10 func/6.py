@@ -1,6 +1,10 @@
+import functools
+
+
 def main():
 
     def decor(func):
+        @functools.wraps(func)
         def wrapper(*args, **kwargs):
             do = func(*args, **kwargs)
             print('Ваша последовательность готова:')
@@ -9,6 +13,8 @@ def main():
 
     @decor
     def func_gener(a, b, c=0):
+        '''Функция генерирует последовательность от "а" до "b" включительно
+        с шагом "с".'''
         if a > b:
             a, b = b, a
         try:
@@ -22,8 +28,6 @@ def main():
             x, y, z = (int(i) for i in input('Введите данные через пробел:\n').split())
             if z == 0:
                 print('Третье значение должно быть больше "0"')
-                #  не додумала, как сделать, чтобы было такое исключение, а после него снова шло
-                #  приглашение к вводу чисел
                 continue
             my_gener = func_gener(x, y, z)
             for i in my_gener:
