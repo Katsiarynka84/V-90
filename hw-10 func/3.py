@@ -3,8 +3,8 @@ import string
 
 
 def main():
-    def pangr(s):
-        import string
+    def pangr(s: str):
+        '''Проверяет строку на соответствие определению Панграмма'''
         return f'"{s}" Строка-панграммa!' if set(string.ascii_lowercase).issubset(set(s.lower())) \
             else f'Это "{s}" не панграммa!'
 
