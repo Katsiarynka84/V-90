@@ -1,10 +1,10 @@
-
 class NumberField:
-
     def __set_name__(self, owner, name):
-        self.name = name
+        self.name = f'_{name}'
+
     def __get__(self, instance, owner):
-        return instance.__dict__[self.name]
+        return getattr(instance, self.name)
+
     def __set__(self, instance, value):
         if type(value) in (int, float):
             instance.__dict__[self.name] = value
@@ -12,29 +12,29 @@ class NumberField:
             raise ValueError('Некорректные данные')
 
 
-
 class SimpleMathExpression:
     a = NumberField()
     b = NumberField()
 
     def __init__(self, a, b):
-            self.a = a
-            self.b = b
+        self._a = a
+        self._b = b
 
     def division(self):
-        if self.b ==  0:
+        if self._b == 0:
             raise ZeroDivisionError
-        return round((self.a / self.b), 3)
+        return round((self._a / self._b), 3)
 
     def multiplication(self):
-        return self.a * self.b
+        return self._a * self._b
 
     def addition(self):
-        return self.a + self.b
+        return self._a + self._b
 
     def subtraction(self):
-        return self.a - self.b
+        return self._a - self._b
 
 
-obj = SimpleMathExpression(6.9, 0)
+obj = SimpleMathExpression(6.9, 3)
 print(obj.division())
+print(obj.__dict__)
