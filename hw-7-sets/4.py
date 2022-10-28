@@ -6,6 +6,7 @@ except ValueError:
 
 else:
     my_set = set()
+    print(my_set)
     for i in list1:
         if i in my_set:
             continue
